@@ -1,4 +1,5 @@
-import { collections, connectToDatabase } from "./database/connectToDB";
+import { connectToDatabase } from "./database/connectToDB";
+import router from "./routes/apiRoutes";
 // import router from "./routes/apiRoutes";
 
 const express = require('express');
@@ -15,18 +16,8 @@ app.use(express.json());
 // TODO: add a route and a function determineWhetherRFQ
 connectToDatabase().then(() => {
     console.log("DB connected!");
-
-    if (collections.emails) {
-        const res = collections.emails.find({}).toArray();
-        res.then((data) => {
-            console.log('data: ', data);
-        })
-    }
-
-    // TODO: write the endpoints themselves later on 
-    // console.log("DB connected!");
-    // app.use("/api", router);
-    // app.listen(port, () => {
-    //     console.log("Server is running");
-    // });
+    app.use("/api", router);
+    app.listen(port, () => {
+        console.log("Server is running");
+    });
 });
