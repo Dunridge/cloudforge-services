@@ -12,13 +12,15 @@ const appOrigin = "http://localhost:3001";
 app.use(cors({ origin: appOrigin })); 
 app.use(express.json());
 
-// add a route and a function determineWhetherRFQ
+// TODO: add a route and a function determineWhetherRFQ
 connectToDatabase().then(() => {
     console.log("DB connected!");
 
     if (collections.emails) {
-        const res = collections.emails.find({});
-        console.log('collections res: ', res);
+        const res = collections.emails.find({}).toArray();
+        res.then((data) => {
+            console.log('data: ', data);
+        })
     }
 
     // TODO: write the endpoints themselves later on 
