@@ -20,28 +20,7 @@ export const checkWhetherEmailIsRFQ = async (req: Request, res: Response) => {
         Consider factors such as language, context, and formatting to make an informed decision. 
         Your response should indicate whether the email is likely an RFQ or not.
         Determine if the following email content is a Request for Quotation (RFQ): ${email}
-        Your response should only contain "Yes" or "No" as the first sentence.
-
-        If the answer is "Yes", extract the customer, products and quantities being requested, 
-        along with any other relevant information like custom dimensions or processing, due 
-        dates, shipping restrictions, etc.
-
-        Example of a structured quote: 
-        Customer: John Doe
-        Email: john.doe@example.com
-
-        Requested Products:
-
-        Product A: 100 units
-        Product B: 50 units (custom dimensions required)
-        Due Date: 2024-06-01
-        Shipping Address: 123 Main Street, Anytown, USA
-
-        Quote:
-        Product A: 100 units x $10/unit = $1000
-        Product B: 50 units x $15/unit = $750 (custom dimensions)
-
-        Total Cost: $1750
+        Your response should only contain "Yes" or "No" as the answer.
         `;
 
         // const userPrompt = `Determine if the following email content is a Request for Quotation (RFQ): ${email}`;
