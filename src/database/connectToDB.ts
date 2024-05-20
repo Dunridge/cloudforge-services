@@ -1,7 +1,7 @@
 import * as mongoDB from "mongodb";
 import * as dotenv from "dotenv";
 
-export const collections: { emails?: mongoDB.Collection, rfqs?: mongoDB.Collection } = {}
+export const collections: { emails?: mongoDB.Collection, rfqs?: mongoDB.Collection, inventory?: mongoDB.Collection } = {}
 
 export async function connectToDatabase() {
     dotenv.config();
@@ -12,8 +12,11 @@ export async function connectToDatabase() {
     const db: mongoDB.Db = client.db(databaseName);
     const emailsCollectionName = process.env.EMAILS_COLLECTION_NAME!;
     const rfqsCollectionName = process.env.RFQS_COLLECTION_NAME!;
+    const inventoryCollectionName = process.env.INVENTORY_COLLECTION_NAME!;
     const emailsCollection: mongoDB.Collection = db.collection(emailsCollectionName);
     const rfqsCollection: mongoDB.Collection = db.collection(rfqsCollectionName);
+    const inventoryCollection: mongoDB.Collection = db.collection(inventoryCollectionName);
     collections.emails = emailsCollection;
     collections.rfqs = rfqsCollection;
+    collections.inventory = inventoryCollection;
 }
