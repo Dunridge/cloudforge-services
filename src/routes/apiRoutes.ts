@@ -8,13 +8,14 @@ import { getInvetoryItems } from "../controllers/getInventoryItems";
 // Use Postman to test this 
 const router = Router();
 
+// Working endpoints
+router.get('/getInvetoryItems', getInvetoryItems);
 router.get('/getCustomerEmails', getCustomerEmails);
+
+// TODO: define the endpoints
 router.post('/postEmail', postEmail);
 router.post('/checkWhetherEmailIsRFQ', checkWhetherEmailIsRFQ);
 router.post('/createRFQFromEmail', createRFQFromEmail);
-
-// get inventory items 
-router.get('/getInvetoryItems', getInvetoryItems);
 
 // check whether order can be filled (this is the call from draft quotes page)
 // // this can be done on the FE side 
