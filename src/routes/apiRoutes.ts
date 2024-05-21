@@ -4,15 +4,17 @@ import { postEmail } from "../controllers/postEmail";
 import { checkWhetherEmailIsRFQ } from "../controllers/checkWhetherEmailIsRFQ";
 import { createRFQFromEmail } from "../controllers/createRFQFromEmail";
 import { getInvetoryItems } from "../controllers/getInventoryItems";
+import { getCreatedRFQs } from "../controllers/getCreatedRFQs";
 
 // Use Postman to test this 
 const router = Router();
 
-// Working endpoints
+// GET
 router.get('/getInvetoryItems', getInvetoryItems);
 router.get('/getCustomerEmails', getCustomerEmails);
+router.get('/getCreatedRFQs', getCreatedRFQs);
 
-// TODO: define the endpoints
+// POST
 router.post('/postEmail', postEmail);
 router.post('/checkWhetherEmailIsRFQ', checkWhetherEmailIsRFQ);
 router.post('/createRFQFromEmail', createRFQFromEmail);
