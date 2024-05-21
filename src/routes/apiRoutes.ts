@@ -5,6 +5,8 @@ import { checkWhetherEmailIsRFQ } from "../controllers/checkWhetherEmailIsRFQ";
 import { createRFQFromEmail } from "../controllers/createRFQFromEmail";
 import { getInvetoryItems } from "../controllers/getInventoryItems";
 import { getCreatedRFQs } from "../controllers/getCreatedRFQs";
+import { getSentRFQs } from "../controllers/getSentRFQs";
+import { sendRFQ } from "../controllers/sendRFQ";
 
 // Use Postman to test this 
 const router = Router();
@@ -14,10 +16,14 @@ router.get('/getInvetoryItems', getInvetoryItems);
 router.get('/getCustomerEmails', getCustomerEmails);
 router.get('/getCreatedRFQs', getCreatedRFQs);
 
+router.get('/getSentRFQ', getSentRFQs);
+
 // POST
 router.post('/postEmail', postEmail);
 router.post('/checkWhetherEmailIsRFQ', checkWhetherEmailIsRFQ);
 router.post('/createRFQFromEmail', createRFQFromEmail);
+
+router.post('/sendRFQ', sendRFQ);
 
 // check whether order can be filled (this is the call from draft quotes page)
 // // this can be done on the FE side 
